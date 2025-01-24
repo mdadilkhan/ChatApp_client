@@ -1,18 +1,15 @@
-
-import { useEffect } from 'react'
-import './App.css'
+import { useEffect, Suspense, lazy } from "react";
+const Home = lazy(() => import("./pages/Home"));
+import "./App.css";
 
 function App() {
- 
-  useEffect(()=>{
-    console.log("hello from adil");
-  },[])
 
   return (
-  <>
-    <p>Project Started</p>
-  </>
-  )
+    <>
+      <Suspense fallback={<div>Loading...</div>}></Suspense>
+      <Home />
+    </>
+  );
 }
 
-export default App
+export default App;
