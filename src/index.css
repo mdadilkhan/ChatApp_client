@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 
-body,html,:root{
+body,html,#root{
     height: 100%;
 }
