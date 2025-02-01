@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const AuthSocialButton = ({icon:Icon,onClick}) => {
-
-    
+const AuthSocialButton = ({ icon: Icon, onClick }) => {
   return (
-    <button type='button' onClick={onClick}
-     className='
+    <button
+      type="button"
+      onClick={onClick}
+      className="
      inline-flex 
      w-full 
      justify-center 
@@ -19,10 +19,11 @@ const AuthSocialButton = ({icon:Icon,onClick}) => {
      ring-gray-300
      hover:bg-gray-50
      focus:outline-offset-0
-     '>
-     <Icon/>
+     "
+    >
+      <Icon />
     </button>
-  )
-}
+  );
+};
 
-export default AuthSocialButton
+export default AuthSocialButton;
