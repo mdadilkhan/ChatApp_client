@@ -4,7 +4,6 @@ const Error = ({ error }) => {
   return (
     <div>
       hello adill
-      <p>{error}</p>
     </div>
   );
 };

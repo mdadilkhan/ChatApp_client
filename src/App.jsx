@@ -1,12 +1,23 @@
 import { useEffect, Suspense, lazy } from "react";
 import { Toaster } from "react-hot-toast";
+import axios from 'axios'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const Authentication = lazy(() => import("./pages/Authentication"));
 const Home = lazy(() => import("./pages/Home"));
 const FallBackLoader = lazy(() => import("./components/FallBackLoader/FallBackLoader"));
 import "./App.css";
 
+
+
+
+
+
+axios.defaults.withCredentials = true;
 function App() {
+
+
+
+
   return (
     <>
       <Suspense fallback={<FallBackLoader />}>

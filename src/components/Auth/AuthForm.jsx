@@ -21,6 +21,7 @@ const REGISTER = "REGISTER";
 
 const AuthForm = () => {
   const { loginWithPopup, logout, getIdTokenClaims } = useAuth0();
+  console.log(useAuth0())
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.authDetails);
   const [variant, setVariant] = useState(LOGIN);
@@ -47,7 +48,6 @@ const AuthForm = () => {
         .then((res) => {
           if (res.status === 200) {
             dispatch(setLoading(false));
-            dispatch(setUser(res.data.data));
             toast.success(res.data.message);
             navigate("/home");
           }
@@ -110,7 +110,6 @@ const AuthForm = () => {
           if (res.status === 200) {
             dispatch(setLoading(false));
             dispatch(setError(false));
-            dispatch(setUser(res.data.data));
             toast.success(res.data.message);
             navigate("/home");
           }
