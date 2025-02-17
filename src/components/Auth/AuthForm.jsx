@@ -200,13 +200,7 @@ const AuthForm = () => {
           </div>
         </div>
       </div>
-      <button
-        onClick={() =>
-          logout({ logoutParams: { returnTo: window.location.origin } })
-        }
-      >
-        Log Out
-      </button>
+
     </div>
   );
 };

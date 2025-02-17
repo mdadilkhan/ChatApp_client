@@ -6,6 +6,7 @@ const Authentication = lazy(() => import("./pages/Authentication"));
 const Home = lazy(() => import("./pages/Home"));
 const FallBackLoader = lazy(() => import("./components/FallBackLoader/FallBackLoader"));
 import "./App.css";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 
 
@@ -25,7 +26,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Authentication />} />
-            <Route path="/home" element={<Home />} />
+            <Route element={<PrivateRoute/>}>
+               <Route path="/home" element={<Home />} />
+            </Route>
+   
           </Routes>
         </BrowserRouter>
       </Suspense>
