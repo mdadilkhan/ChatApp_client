@@ -5,8 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 const Authentication = lazy(() => import("./pages/Authentication"));
 const Home = lazy(() => import("./pages/Home"));
 const FallBackLoader = lazy(() => import("./components/FallBackLoader/FallBackLoader"));
+const PrivateRoute =lazy(()=>import("./components/PrivateRoute/PrivateRoute"))
 import "./App.css";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+
 
 
 
@@ -27,7 +28,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Authentication />} />
             <Route element={<PrivateRoute/>}>
-               <Route path="/home" element={<Home />} />
+               <Route path="/users" element={<Home />} />
             </Route>
    
           </Routes>

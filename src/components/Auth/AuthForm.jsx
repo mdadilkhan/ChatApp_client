@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { lazy, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -8,19 +8,22 @@ import { BsGithub } from "react-icons/bs";
 import { BsGoogle } from "react-icons/bs";
 import { useAuth0 } from "@auth0/auth0-react";
 
-import Input from "../Inputs/Input";
-import Button from "../Buttons/Button";
-import AuthSocialButton from "../AuthSocailButton/AuthSocialButton";
+
+const Input = lazy(()=>import("../Inputs/Input"))
+const Button = lazy(()=>import("../Buttons/Button"))
+const AuthSocialButton = lazy(()=>import("../AuthSocailButton/AuthSocialButton"))
+
 import { setUser, setError, setLoading } from "../../store/slices/authSlices";
+
+
 //variables
 const API_URL = import.meta.env.VITE_API_URI;
-
 //value can be two only either login or register
 const LOGIN = "LOGIN";
 const REGISTER = "REGISTER";
 
 const AuthForm = () => {
-  const { loginWithPopup, logout, getIdTokenClaims } = useAuth0();
+  const { loginWithPopup, getIdTokenClaims } = useAuth0();
   console.log(useAuth0())
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.authDetails);
@@ -49,7 +52,7 @@ const AuthForm = () => {
           if (res.status === 200) {
             dispatch(setLoading(false));
             toast.success(res.data.message);
-            navigate("/home");
+            navigate("/users");
           }
         })
         .catch((err) => {
@@ -111,7 +114,7 @@ const AuthForm = () => {
             dispatch(setLoading(false));
             dispatch(setError(false));
             toast.success(res.data.message);
-            navigate("/home");
+            navigate("/users");
           }
         })
         .catch((err) => {

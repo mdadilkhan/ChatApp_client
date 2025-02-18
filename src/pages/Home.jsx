@@ -1,14 +1,18 @@
-import React, { useEffect } from "react";
+import React, { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, setError, setLoading } from "../store/slices/authSlices";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useAuth0 } from "@auth0/auth0-react";
 
+
+const EmptyState=lazy(()=>import("../components/EmptyState/EmptyState")) 
+const Layout =lazy(()=>import("../layout/Layout"))
 const API_URL = import.meta.env.VITE_API_URI;
+
+
 const Home = () => {
   const dispatch = useDispatch();
-  const { logout } = useAuth0();
+
 
   const userData=useSelector((state)=>state.authDetails)
   console.log(userData);
@@ -32,16 +36,27 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      hello
+    <>
+   
+
+    <Layout>
+    <div className="hidden lg:block h-full">
+      <EmptyState/>
     </div>
+    </Layout>
+
+    </>
+
+
   );
 };
 
 export default Home;
 
 
+// import { useAuth0 } from "@auth0/auth0-react";
 
+// const { logout } = useAuth0();
 
   // const userLogout = () => {
   //   axios
