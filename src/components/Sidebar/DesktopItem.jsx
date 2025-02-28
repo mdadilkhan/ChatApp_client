@@ -2,7 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 const DesktopItem = ({ href, label, icon: Icon, active, onClick }) => {
-  console.log(active);
+
 
   return (
     <li onClick={onClick}>

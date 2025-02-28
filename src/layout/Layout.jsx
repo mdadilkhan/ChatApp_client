@@ -1,23 +1,8 @@
-// import { lazy } from "react"
-
-// const Sidebar = lazy(()=>import('../components/Sidebar/Sidebar'))
-// const Layout = ({children}) => {
-//   return (
-//     <Sidebar>
-//       <div className="h-full">
-//        {children}
-//       </div>
-//     </Sidebar>
-
-//   )
-// }
-
-// export default Layout
-
 import { lazy, Suspense } from "react";
 
+const MobileFooter =lazy(()=>import("../components/Sidebar/MobileFooter"))
 const Sidebar = lazy(() => import("../components/Sidebar/Sidebar"));
-const Header = lazy(() => import("../components/Header/Header"));
+// const Header = lazy(() => import("../components/Header/Header"));
 const Layout = ({ children }) => {
   return (
     <>
@@ -25,10 +10,11 @@ const Layout = ({ children }) => {
         <Header />
       </div> */}
       <div className="flex">
+        <MobileFooter/>
         <Sidebar />
 
         {/* Main Content */}
-        <div className="flex-1 h-screen">{children}</div>
+        <main className="flex-1 h-screen">{children}</main>
       </div>
     </>
   );

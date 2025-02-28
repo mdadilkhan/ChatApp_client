@@ -15,7 +15,7 @@ const Home = () => {
 
 
   const userData=useSelector((state)=>state.authDetails)
-  console.log(userData);
+  // console.log(userData);
   const getUserDetials = () => {
     axios
       .get(`${API_URL}/user/getUserDetials`)
