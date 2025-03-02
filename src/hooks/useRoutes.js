@@ -15,7 +15,7 @@ const useRoutes = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const { conversationId } = useConversation();
-  console.log(location);
+
   const pathname = location.pathname;
 
   const userLogout = () => {

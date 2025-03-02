@@ -1,11 +1,14 @@
 import { lazy, useState } from "react";
 import useRoutes from "../../hooks/useRoutes";
+import { useSelector } from "react-redux";
 
 const DesktopItem = lazy(() => import("./DesktopItem"));
-
+const Avatar = lazy(()=>import('../Avatar/Avatar'))
 const DesktopSidebar = () => {
   const routes = useRoutes();
   const [isOpen, setIsOpen] = useState(false);
+  const {currentUser}=useSelector((state)=>state.authDetails)
+
 
 
   return (
@@ -39,6 +42,25 @@ const DesktopSidebar = () => {
             />
           ))}
         </ul>
+      </nav>
+      <nav
+        className="
+        mt-4
+        flex
+        flex-col
+        items-center
+       "
+      >
+        <div
+          onClick={() => setIsOpen(true)}
+          className="
+         cursor-pointer
+         hover:opacity-75
+         transition
+       "
+        >
+          <Avatar data={currentUser}/>
+        </div>
       </nav>
     </div>
   );

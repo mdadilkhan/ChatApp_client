@@ -24,7 +24,7 @@ const REGISTER = "REGISTER";
 
 const AuthForm = () => {
   const { loginWithPopup, getIdTokenClaims } = useAuth0();
-  console.log(useAuth0())
+  // console.log(useAuth0())
   const dispatch = useDispatch();
   const { isLoading } = useSelector((state) => state.authDetails);
   const [variant, setVariant] = useState(LOGIN);
@@ -95,15 +95,17 @@ const AuthForm = () => {
       await loginWithPopup();
       // Once redirected back, check if user exists
       const claims = await getIdTokenClaims(); // Get user info
-
+      console.log("claims??",claims);
+      
       if (!claims) {
         console.error("User claims not found!");
         return;
       }
-
+     
       const data = {
         name: claims.name,
         email: claims.email,
+        image:claims.picture,
         provider: claims.sub.split("|")[0],
       };
 

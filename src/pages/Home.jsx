@@ -14,8 +14,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
 
-  const userData=useSelector((state)=>state.authDetails)
-  // console.log(userData);
+
   const getUserDetials = () => {
     axios
       .get(`${API_URL}/user/getUserDetials`)

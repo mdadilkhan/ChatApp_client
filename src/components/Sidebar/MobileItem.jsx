@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Link } from "react-router-dom";
 
 const MobileItem = ({ href, label, icon: Icon, active, onClick }) => {
-    console.log(active,label);
+
     
   return (
     <Link
