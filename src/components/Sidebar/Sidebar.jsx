@@ -22,9 +22,7 @@ const DesktopSidebar = lazy(()=>import("./DesktopSidebar"))
 const Sidebar = () => {
   return (
     <div className="w-80  lg:block h-full">
-      {/* <Suspense fallback={<div>Loading...</div>}> */}
         <DesktopSidebar />
-      {/* </Suspense> */}
     </div>
   );
 };

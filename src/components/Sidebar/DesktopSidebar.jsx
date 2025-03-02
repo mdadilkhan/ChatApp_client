@@ -1,12 +1,3 @@
-// const DesktopSidebar = () => {
-//   return (
-//     <div>
-//       Desktop
-//     </div>
-//   )
-// }
-// export default DesktopSidebar
-
 import { lazy, useState } from "react";
 import useRoutes from "../../hooks/useRoutes";
 
@@ -15,7 +6,7 @@ const DesktopItem = lazy(() => import("./DesktopItem"));
 const DesktopSidebar = () => {
   const routes = useRoutes();
   const [isOpen, setIsOpen] = useState(false);
-  console.log(routes);
+
 
   return (
     <div
@@ -37,14 +28,14 @@ const DesktopSidebar = () => {
     >
       <nav className="mt-4 flex flex-col justify-between">
         <ul role="list" className="flex flex-col items-center space-y-1">
-          {routes.map((item) => (
+          {routes.map((route) => (
             <DesktopItem
-              key={item.label}
-              href={item.href}
-              label={item.label}
-              icon={item.icon}
-              active={item.active}
-              onClick={item.onCLick}
+              key={route.label}
+              href={route.href}
+              label={route.label}
+              icon={route.icon}
+              active={route.active}
+              onClick={route.onCLick}
             />
           ))}
         </ul>

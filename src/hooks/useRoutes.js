@@ -63,33 +63,3 @@ const useRoutes = () => {
 
 
 export default useRoutes
-
-// import { useAuth0 } from "@auth0/auth0-react";
-
-// const { logout } = useAuth0();
-
-//   const userLogout = () => {
-//     axios
-//       .post(`${API_URL}/auth/logout`)
-//       .then((res) => {
-//         if (res.status === 200) {
-//           dispatch(setUser(null))
-//           toast.success(res.data.message);
-//           logout({ logoutParams: { returnTo: window.location.origin } });
-//         }
-//       })
-//       .catch((err) => {
-//         toast.error(err.response.data.message);
-//         console.log(err);
-//       });
-//   };
-
-{
-  /* <button
-onClick={() => {
-  userLogout();
-}}
->
-Logout
-</button> */
-}

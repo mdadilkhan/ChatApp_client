@@ -22,7 +22,7 @@ const PrivateRoute = () => {
     axios
       .get(`${API_URL}/user/getUserDetials`)
       .then((res) => {
-        console.log("res>>>", res);
+        // console.log("res>>>", res);
         if (res.status === 200) {
           setIsAuthenticated(true);
           toast.success("Authentication successful")
