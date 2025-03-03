@@ -3,7 +3,11 @@ import React, { useCallback, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 
+
+const API_URL= import.meta.env.VITE_API_URI
 const UserBox = ({data}) => {
+    console.log(data);
+    
   const navigate=useNavigate()
   const [isLoading,setIsLoading]=useState(false)
 
@@ -12,7 +16,7 @@ const UserBox = ({data}) => {
   const handleClick=useCallback(()=>{
     setIsLoading(true);
     // now make an api call for doing conversation with some user which will be psot reuqest and it takes that users id in body
-    axios.post("",{userId:data._id}).then((res)=>{
+    axios.post(`${API_URL}/conversation/chat`,{userId:data._id}).then((res)=>{
       console.log(res.data.data);
       navigate(`/conversations/${res.data.data._id}`)
     }).catch((error)=>{
@@ -47,7 +51,7 @@ const UserBox = ({data}) => {
             <p className='tex-sm font-medium text-gray-900'>{data.name}</p>
          </div>
         </div>
-      </div>
+      </div> 
     </div>
   )
 }

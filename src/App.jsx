@@ -29,6 +29,7 @@ function App() {
             <Route path="/" element={<Authentication />} />
             <Route element={<PrivateRoute/>}>
                <Route path="/users" element={<Home />} />
+               <Route path="/conversation/:id" element={<Home/>} />
             </Route>
    
           </Routes>
